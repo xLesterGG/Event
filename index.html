@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html data-ng-app="myApp" lang="en" >
+<head>
+	<title>Template that uses Bootstrap </title>
+	<meta name="viewport" content="width=device width,initialscale=1.0"/>
+	<!--Boostrap-->
+	<link href="css/bootstrap.min.css" rel="stylesheet"/>
+	<!--HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
+	<!--WARNING: Respond.js doesn't work if you view the page via file://-->
+	<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<script src="js/respond.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" type="text/css" href="css/stylesheet.css"/>
+
+	</head>
+
+	<body>
+		<div class="container" data-ng-controller="myCtrl">
+
+            <!--header-->
+            <div class="jumbotron">
+				<div data-ng-repeat="event in data" data-ng-controller="chatCtrl" data-ng-init="LoadData()">
+
+				<h1><strong>{{event.EventName}}</strong></h1>
+					<div class="row">
+						<div class="col-md-10 col-xs-6">
+							<h4><strong> Description: {{event.EventDesc}}</strong></h4>
+							<h4> <strong>Location  : {{event.EventLocation}}</strong></h4>
+
+						</div>
+
+						<div class="col-md-2 col-xs-6">
+							<img id="qr" src="qr.png" alt="qrcode"/>
+						</div>
+					</div>
+				</div>
+			</div>
+
+            <!--navbar-->
+			<div class="row">
+
+				<div class="col-md-12 col-xs-12" id="main">
+
+					<nav class="navbar navbar-inverse" id="navibar">
+						<div class="container-fluid">
+							 <div class="navbar-header">
+								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavBar">
+								<!--	<span class="sr-only">Toggle navigation</span>-->
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+
+								</button>
+
+								<a class="navbar-brand" href="#">
+									 <!--<img src="downlad.png" alt="logo">-->
+								</a>
+							</div>
+
+							<div class="collapse navbar-collapse" id="myNavBar">
+								<ul class="nav navbar-nav" id="menubar">
+
+
+									<li>
+										<a data-ui-sref="/">Home</a>
+									</li>
+
+
+									<li data-ng-if="isadmin==1">
+										<a data-ui-sref="addactivities">Add Activities</a>
+									</li>
+									<li data-ng-if="isadmin==1">
+										<a data-ui-sref="managechat">Chat management</a>
+									</li>
+
+									<li data-ng-if="isadmin==1">
+										<a data-ui-sref="manageactivity">Activity management</a>
+									</li>
+
+									<li data-ng-if="isadmin==1">
+										<a data-ui-sref="manageevent({id: id})">Event management</a>
+									</li>
+								</ul>
+
+								<ul class="nav navbar-nav navbar-right" id="menubar1">
+								  <li  data-ng-if="isadmin==0"><a data-ui-sref="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
+									<li  data-ng-if="isadmin==1"><a data-ng-click="logout()" data-ui-sref="/"><span class="glyphicon glyphicon-log-out"></span>Log Out</a></li>
+
+
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+
+			<div data-ui-view></div>
+
+
+			<div class="row" id="footer">
+				<div class="col-md-12 col-xs-12">
+					  <p> For any inquiries regarding anything, please contact <a href="mailto:4329619@students.swinburne.edu.my"
+                    >Lester	</a></p>
+                <p class="copyright">&#169; COS30043 Interface Design and Development Semester 1 2016</p>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/angular.min.js"></script>
+		<script src="js/controller.js"></script>
+		<script src="js/angular-ui-router.js"></script>
+
+	</body>
+</html>

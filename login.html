@@ -1,0 +1,37 @@
+<div class="row">
+	<div class="col-md-12" >
+		<div class="row"></div>
+			<div class="col-md-12 col-xs-12" id="post-contact">
+				<h1>Admin login form</h1>
+				<p>Login to gain administrative rights</p>
+				
+				<form name="admin" data-ng-submit="adminlogin(admin.id,admin.pw)">
+					<div class="row">
+						<div class="col-md-4">
+						<label for="id">ID:</label>
+					<input type="text" data-ng-model="admin.id" required class="form-control">
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-4">
+						<label for="id">Password:</label>
+					<input type="password" data-ng-model="admin.pw" required class="form-control">
+						</div>
+					</div>
+					
+					<div class="row"> 
+						<div class="col-md-3 col-sm-6">		
+							<br/><button type="Submit"> Submit</button>
+						</div>						
+					</div>
+					{{msg1}}
+				
+				
+				
+				</form>
+				
+		
+			</div>		
+	</div>
+</div>

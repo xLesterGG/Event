@@ -1,0 +1,39 @@
+<?php 
+	include('dbconnect.php');
+
+	$result = $conn->query("SELECT * FROM Messages WHERE EventID =1;");
+
+	$outp = [];
+
+
+	while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+		
+		$mtime = $rs["MessageTime"];
+		$mtime= preg_replace("/\(.*\)/","",$mtime);
+		
+		
+		$outp[] = 
+		[
+			"EventID" => $rs["EventID"],
+			"MessageID" => $rs["MessageID"],
+			"NickName" => $rs["NickName"],
+			"Message" => $rs["Message"],			
+			"MessageTime" => date("F j, Y, g:i a",strtotime($mtime))
+			
+		];
+		
+		
+		
+		
+		
+	/*	$outp .= '{"EventID":"'  . $rs["EventID"] . '",';
+		$outp .= '"MessageID":"'  . $rs["MessageID"] . '",';
+		$outp .= '"NickName":"'  . $rs["NickName"] . '",';
+		$outp .= '"Message":"'  . $rs["Message"] . '",';
+        $outp .= '"MessageTime":"'  . $rs["MessageTime"] . '"}';*/
+	}
+	
+	$conn->close();
+
+	echo(json_encode($outp));
+?>

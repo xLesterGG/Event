@@ -1,0 +1,172 @@
+<!--<h1> HELLO WORLD</h1> --> <!--current id = {{eventid}}-->
+<div class="row" >
+		<div class="col-md-8 col-xs-12" >	
+            <div class="row" id="post-item2">
+			    <div data-ng-Post></div>
+			</div>
+		</div>
+
+		<div class="col-md-4 col-xs-12">
+			<div class="row" id="post-item">
+				<div class="col-md-12" data-ng-controller="activityCtrl" data-ng-init="LoadData()">
+					<h2 class="post-title">Ongoing activities - </h2>					
+                    
+					<ul class="list-group">
+						<li class="list-group-item" data-ng-repeat="activity in data.activities| offset:currentPage*accPerPage| limitTo:accPerPage" data-ng-show="{{activity|ongoing}}"><a data-toggle="modal" data-target="#myModal{{$index}}">{{activity.ActivityName}}</a>
+                        
+                            <div class="modal fade" id="myModal{{$index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+											<h4 class="modal-title" id="myModalLabel">{{activity.ActivityName}}</h4>
+										</div>
+										
+										<div class="modal-body">
+											<h4> Location: {{activity.ActivityLocation}}</h4>
+											<h4>Date:{{activity.ActivityDate}}</h4>
+											<h4>Time : {{activity.StartTime}}  to {{activity.EndTime}} </h4>
+											<hr/> 
+											<h4> Description :</h4>
+											<p>{{activity.ActivityDescription}}</p>
+										</div>
+							
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+										</div>
+									</div>
+								</div>
+							</div>                  
+                        
+                        </li>	
+                        
+					</ul>
+					
+					
+					<ul class="pagination">
+						<li data-ng-class="prevPageDisabled()">
+							<a data-ng-href data-ng-click="prevPage()">Prev</a>
+						</li>
+												
+						
+						<li data-ng-class="nextPageDisabled()">
+							<a data-ng-href="" data-ng-click="nextPage()">Next</a>
+						</li>
+
+					</ul>			
+					
+					
+				</div>				
+			</div>
+
+			
+			<div class="row" id="post-item11">
+				<div class="col-md-12" data-ng-controller="activityCtrl">
+					<h2 class="post-title">Upcoming activities - </h2>					
+					<ul class="list-group">
+						<li class="list-group-item" data-ng-repeat="activity in data.activities| offset:currentPage*accPerPage| limitTo:accPerPage" data-ng-show="{{activity|upcoming}}" ><a data-toggle="modal" data-target="#myModal2{{$index}}">{{activity.ActivityName}}</a>
+                        
+                            <div class="modal fade" id="myModal2{{$index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+											<h4 class="modal-title" id="myModalLabel2">{{activity.ActivityName}}</h4>
+										</div>
+										
+										<div class="modal-body">
+											<h4> Location: {{activity.ActivityLocation}}</h4>
+											<h4>Date:{{activity.ActivityDate}}</h4>
+											<h4>Time : {{activity.StartTime}}  to {{activity.EndTime}} </h4>
+											<hr/> 
+											<h4> Description :</h4>
+											<p>{{activity.ActivityDescription}}</p>
+										</div>
+							
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+										</div>
+									</div>
+								</div>
+							</div>
+                        
+                        
+                        </li>	
+                        
+					</ul>
+					
+					
+					<ul class="pagination">
+						<li data-ng-class="prevPageDisabled()">
+							<a data-ng-href data-ng-click="prevPage()">Prev</a>
+						</li>
+						
+						<!--<li data-ng-repeat="n in range()" data-ng-class="{active:n == currentPage}" data-ng-click="setPage(n)">
+						
+							<a data-ng-href="#">{{n+1}}</a>
+						</li>-->
+						
+						<li data-ng-class="nextPageDisabled()">
+							<a data-ng-href="" data-ng-click="nextPage()">Next</a>
+						</li>
+
+					</ul>			
+				</div>				
+			</div>
+	 		
+			<div class="row" id="post-item22">
+				<div class="col-md-12" data-ng-controller="activityCtrl">
+					<h2 class="post-title">Past activities - </h2>					
+					<ul class="list-group">
+						<li class="list-group-item" data-ng-repeat="activity in data.activities| offset:currentPage*accPerPage| limitTo:accPerPage" data-ng-show="{{activity|past}}" ><a data-toggle="modal" data-target="#myModal3{{$index}}">{{activity.ActivityName}}</a>
+                        
+                            <div class="modal fade" id="myModal3{{$index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+											<h4 class="modal-title" id="myModalLabel3">{{activity.ActivityName}}</h4>
+										</div>
+										
+										<div class="modal-body">
+											<h4> Location: {{activity.ActivityLocation}}</h4>
+											<h4>Date:{{activity.ActivityDate}}</h4>
+											<h4>Time : {{activity.StartTime}}  to {{activity.EndTime}} </h4>
+											<hr/> 
+											<h4> Description :</h4>
+											<p>{{activity.ActivityDescription}}</p>
+										</div>
+							
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+										</div>
+									</div>
+								</div>
+							</div>
+                        
+                        
+                        </li>	
+                        
+					</ul>
+					
+					
+					<ul class="pagination">
+						<li data-ng-class="prevPageDisabled()">
+							<a data-ng-href data-ng-click="prevPage()">Prev</a>
+						</li>
+						
+						<!--<li data-ng-repeat="n in range()" data-ng-class="{active:n == currentPage}" data-ng-click="setPage(n)">
+						
+							<a data-ng-href="#">{{n+1}}</a>
+						</li>-->
+						
+						<li data-ng-class="nextPageDisabled()">
+							<a data-ng-href="" data-ng-click="nextPage()">Next</a>
+						</li>
+
+					</ul>						
+				</div>			
+			</div>		
+			
+		</div>	
+	</div>

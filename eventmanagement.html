@@ -1,0 +1,59 @@
+
+<div class="row" data-ng-repeat="d in data" data-ng-init="LoadData(d.EventName,d.EventDesc,d.EventLocation)" data-ng-controller="eventMgmtCtrl">
+	<div class="col-md-12" >
+		
+		<div class="row">
+			<div class="col-md-12" id="post-contact">
+				<h1>Update Event Form</h1>		
+           		 <p>Update the event details. Current information are displayed </p>				
+				<form name="eventUpdateForm" data-ng-submit="Update()">
+					
+					<div class="row">
+						<div class="col-md-3 col-sm-6 col-xs-6">
+							<label for="evname">Event Name : </label> 
+							<input type="text" id="evname" class="form-control" data-ng-model="ev.name" name="eventname" data-ng-required="required" placeholder="Event Name"/>
+							<span data-ng-show="eventUpdateForm.eventname.$error.ischanged"> You did not change your event name</span>
+
+
+							<span data-ng-show="eventUpdateForm.eventname.$error.required && eventUpdateForm.eventname.$touched" class="text-danger"> You must enter a event name</span>
+						</div>
+					</div>
+
+
+					<div class="row">
+						<div class="col-md-3 col-sm-6 col-xs-6">
+							<label for="evdesc">Event Description: </label>
+							<textarea id="evdesc" data-ng-model="ev.desc" name="eventdesc" rows="3" cols="35" data-ng-maxlength="70" class="form-control">
+							</textarea>
+							<span data-ng-show="eventUpdateForm.eventdesc.$error.maxlength" class="text-danger">Event description cannot be more then 70 characters!</span>
+						</div>			
+					</div>
+
+
+					<div class="row">
+						<div class="col-md-3 col-sm-6 col-xs-6">
+							<label for="evlocationname">Event Location : </label> 
+							<input type="text" id="evlocationname" class="form-control" data-ng-model="ev.location" name="evlocationname" data-ng-required="required" placeholder="Activity location name" />
+							<span data-ng-show="eventUpdateForm.evlocationname.$error.required && eventUpdateForm.evlocationname.$touched" class="text-danger"> You must enter a Event location name</span>
+
+						</div>			
+					</div>
+
+					<div class="row" > 
+						<div class="col-md-12 col-sm-12">		
+							<br/><button type="submit" data-ng-disabled="eventUpdateForm.$invalid"> Update</button> {{msg}}
+						</div>						
+					</div>
+
+
+				</form>
+			
+			</div>		
+		</div>
+		
+		
+		
+		
+	
+	</div>
+</div>

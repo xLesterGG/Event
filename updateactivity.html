@@ -1,0 +1,99 @@
+<div class="row" data-ng-controller="updateactivityMgmtCtrl">
+	<div class="col-md-12" id="post-contact" >
+		<div data-ng-repeat="activity in data.activities|filter:{ActivityID:activityID}" >	
+			<!--filter activity id, and load information from that activity into form -->
+			
+			<h1>Update Activity Form</h1>		
+            <p>Update the activity details accordingly. Current information are displayed </p>
+			
+			<form name="acupdateform" data-ng-submit="Update()"  
+				  data-ng-init="LoadData(activity.ActivityID,activity.ActivityName,activity.ActivityLocation, activity.ActivityDescription, activity.ActivityDate, activity.StartTime, activity.EndTime)"> 
+				
+				<div class="row">
+					<div class="col-md-3 col-sm-6">
+						<label>Activity ID:</label> {{activityID}}							
+					</div>			
+				</div>	
+	
+
+				<div class="row">
+					<div class="col-md-3 col-sm-6 col-xs-6">
+						<label for="accname">Activity Name : </label> 
+						<input type="text" id="accname" class="form-control" data-ng-model="uactivity.name" name="activityname" data-ng-required="required" placeholder="Activity name" />
+						<span data-ng-show="acupdateform.activityname.$error.required && acupdateform.activityname.$touched" class="text-danger"> You must enter a activity name</span>
+					</div>
+				</div>
+
+
+
+				<div class="row">
+					<div class="col-md-3 col-sm-6 col-xs-6">
+						<label for="locationname">Activity Location : </label> 
+						<input type="text" id="locationname" class="form-control" data-ng-model="uactivity.location" name="locationname" data-ng-required="required" placeholder="Activity location name" />
+						<span data-ng-show="acupdateform.locationname.$error.required && acupdateform.locationname.$touched" class="text-danger"> You must enter a activity location name</span>
+
+					</div>			
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-sm-6 col-xs-6">
+						<label for="accdesc">Activity Description: </label>
+						<textarea id="accdesc" data-ng-model="uactivity.desc" name="activitydesc" rows="3" cols="35" data-ng-maxlength="70" class="form-control">
+							
+						</textarea>
+						
+						<span data-ng-show="acupdateform.activitydesc.$error.required && acupdateform.activitydesc.$touched" class="text-danger"> You must enter a activity description!</span>
+						<span data-ng-show="acupdateform.activitydesc.$error.maxlength" class="text-danger">Activity description cannot be more then 70 characters!</span>
+					</div>			
+				</div>
+				<!--min="{{CurrentDate|date:'yyyy-MM-dd'}}" -->
+				<div class="row"> 
+					<div class="col-md-3 col-sm-6">
+						<label for="date">Activity's date: </label>
+						<input type="date" name="date" id="date" data-ng-model="uactivity.date" required="required"  class="form-control" >
+							<span data-ng-show="acupdateform.date.$error.required && acupdateform.date.$touched" class="text-danger">You must enter a date for the activity!</span>
+							<span data-ng-show="acupdateform.date.$error.min" class="text-danger">You cant set an event in the past!</span>	
+					</div>						
+				</div>
+
+				<div class="row"> 
+					<div class="col-md-3 col-sm-6">
+						<label for="stime">Activity's start time: </label>
+						<input type="time" name="stime" id="stime" data-ng-model="uactivity.stime" required="required"   class="form-control" >
+						<span data-ng-show="acupdateform.stime.$error.required && acupdateform.stime.$touched" class="text-danger">You must enter a activity start time!</span>
+						<!--<span data-ng-show="acupdateform.stime.$error.min">You cant set an event in the past!</span>					-->
+					</div>						
+				</div>
+				<!--  min="{{CurrentDate|date:'HH:mm'}}"        data-ng-date="{activity.stime, activity.etime}" -->
+				<!-- validation for start time is disabled for allowing time to be changed for checking purposes. Should be enabled if deployed. -->
+
+				<div class="row"> 
+					<div class="col-md-3 col-sm-6">
+						<label for="etime">Activity's end time: </label>
+						<input type="time" name="etime" id="etime" data-ng-model="uactivity.etime" data-ng-required="required"  class="form-control" min="{{activity.stime|date:'HH:mm'}}">
+						<span data-ng-show="acupdateform.etime.$error.required && acupdateform.etime.$touched" class="text-danger">You must enter a activity end time!</span>	
+						<span data-ng-show="myForm.etime.$error.min" class="text-danger">You cant end an event before it start!</span>	
+
+					</div>						
+				</div>
+
+
+				<div class="row" > 
+					<div class="col-md-12 col-sm-12">		
+						<br/><button type="submit" data-ng-disabled="acupdateform.$invalid"> Update</button>
+					</div>						
+				</div>
+
+
+
+
+			</form>
+			{{msg}}
+		</div>
+		
+		
+	
+	
+	
+	</div>
+</div>

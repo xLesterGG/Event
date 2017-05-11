@@ -1,0 +1,280 @@
+html,
+body {
+    height: 100%;
+}
+
+/* You can change the height of the carousel by changing the height in the class below. It is set to 50% by default, but can be any height! */
+
+.carousel {
+    height: 50%;
+}
+
+.item,
+.active,
+.carousel-inner {
+    height: 100%;
+}
+
+/* Background images are set within the HTML using inline CSS, not here */
+
+.fill {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+
+
+
+body 
+{
+	background: url('images/bg.jpg') repeat fixed 0% 0%;
+	font-family: 'Open Sans', Lato, Helvetica,Arial,sans-serif;
+	color: #676767;
+}
+
+.jumbotron
+{
+    margin-bottom: 0px;
+    border-top: 6px solid #dc2d27;
+    border-radius: 0px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+/* ===================================  Navigation Bar ==============================*/
+
+
+#menubar li a {
+	text-decoration: none;
+	text-transform: uppercase;
+    color: white;
+    height: 50px;
+    line-height: 52px;
+    padding: 0px 19px;
+    font-size: 13px;
+	font-family: "Quicksand",sans-serif;
+	
+}
+
+#menubar li a:link{
+	color: floralwhite;
+}
+
+#menubar li a:visited{
+	color: floralwhite;
+}
+
+#menubar li a:hover{
+	color: #dc2d27;
+}
+
+#menubar li a:active{
+	color: floralwhite;
+}
+
+/*================================== EVENTS SECTION -------------------------------- */
+#post-item
+{
+    box-shadow: 0.3px 0px 3px rgba(0, 0, 0, 0.3);
+    background-color: #f4f4f4;
+        margin-bottom: 20px;
+}
+
+#post-item11
+{
+    box-shadow: 0.3px 0px 3px rgba(0, 0, 0, 0.3);
+    background-color: #f4f4f4;
+        margin-bottom: 20px;
+}
+
+#post-item22
+{
+    box-shadow: 0.3px 0px 3px rgba(0, 0, 0, 0.3);
+    background-color: #f4f4f4;
+        margin-bottom: 20px;
+}
+
+#post-item2
+{
+    box-shadow: 0.3px 0px 3px rgba(0, 0, 0, 0.3);
+    background-color: #f4f4f4;
+        margin-bottom: 20px;
+    padding-left:15px;
+    padding-bottom:15px;
+    margin-right: -5px;
+}
+
+#post-contact
+{
+    box-shadow: 0.3px 0px 3px rgba(0, 0, 0, 0.3);
+    background-color: #f4f4f4;
+    padding: 25px 48px 25px 48px;
+    margin-right: -5px;
+    color: #292625;
+    font-family: "Open Sans",sans-serif;
+    margin-bottom: 30px;
+}
+
+#post-contact h1::after, .h1::after {
+    background: transparent url("//www.swinburne.edu.au/media/swinburneeduau/style-assets/images/red-dot-hp.png") no-repeat scroll 0 0;
+    content: "";
+    display: inline-block;
+    height: 13px;
+    left: 2px;
+    margin-right: -10px;
+    position: relative;
+    top: 3px;
+    width: 10px;
+    /*Resources: http://www.swinburne.edu.my/study/connect/email/*/
+}
+
+#post-contact label::after
+{
+    color: #f00;
+    content: " *";
+}
+
+#post-contact button
+{
+    overflow: visible;
+    position: relative;
+    float: left;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    height: 40px;
+    width: 20%;
+    font: bold 11px/20px 'Lato', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    background: #d83c3c;
+    border-radius: 3px;
+    text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
+}
+}
+
+#post-contact h1
+{
+    font-weight: 400;
+    line-height: 1.2;
+    text-rendering: optimizelegibility;
+    margin-bottom: 15px;
+}
+
+#post-contact p
+{
+    font-weight: 400;
+    line-height: 1.2;
+    text-rendering: optimizelegibility;
+    margin: 0 0 30px;
+    width: 90%;
+}
+
+#post-contact .col-md-3
+{
+    width:70%;
+    padding-left: 0px;
+}
+
+#post-contact .row
+{
+    margin-bottom:15px;
+}
+.post-desc
+{
+    font-size: 12px;
+	line-height: 17px;
+}
+
+.post-title
+{
+    color: #dc2d27;
+    font-family: Muli,Helvetica,Arial,sans-serif;
+    font-size: 34px;
+    font-weight: 300;
+    line-height: 1.14286;
+    letter-spacing: -0.04em;
+    margin: .8em 0 .2em 0;
+}
+
+.row
+{
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+label
+{
+    font-weight: normal;
+}
+
+
+/*below is for chat box*/
+.panel-body{
+	padding:0 4px;
+	
+}
+
+.panel-title{
+	display:inline;
+}
+
+.panel-heading{
+	padding:0 0 0 8px;;
+}
+
+#chatp{
+	max-height:300px;
+	max-width:100%;
+	overflow-y:auto;
+	overflow-x:hidden;
+	
+}
+
+#chatr{
+	min-width:100%;
+	max-width:100%;
+	width:100%;
+}
+/* misc*/
+
+#qr{
+	width:100px;
+	height:100px;
+	
+}
+
+#footer{
+    padding-top: 10px;
+    background-color:#f4f4f4;
+    text-align:center;
+    position: relative;
+    margin-top: -80px; /* negative value of footer height */
+    height: 80px;
+    clear:both;
+    color: #000000;
+    }
+ 
+#footer a{
+    display: inline;
+    color: #E94F1D;
+    }
+
+ 
+#footer li a:hover{
+    text-decoration: underline;
+    color: #1B7FCC;
+    }
+   
+.copyright {
+    color: #000000;
+    clear: both;
+    font-size: 11px;
+}
+ 
+

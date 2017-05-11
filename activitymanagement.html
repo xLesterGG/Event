@@ -1,0 +1,34 @@
+<div class="row" data-ng-controller="activityMgmtCtrl">
+	<div class="col-md-12 col-xs-12">				
+		<div class="table-responsive">
+
+			 <table class="table table-striped table-hover" >
+					 <caption> List of all events</caption>
+					 <thead>
+						<tr>
+							<th id="acid">Activity Id</th>
+							<th id="aname">Activity Name</th>
+							<th id="aactions">Actions</th>
+						</tr>
+
+					</thead>
+
+					<tbody>
+						<tr data-ng-repeat="activity in data.activities">
+							<td>{{activity.ActivityID}}</td>
+							<td>{{activity.ActivityName}}</td>
+							<td>
+								
+								<button data-ng-click="Remove(activity.ActivityID,activity.EventID)">Delete Activity</button>
+								
+								<button ui-sref="manageactivity.update({id: activity.ActivityID})">Edit Activity</button>
+							</td>				
+						</tr>				 
+					</tbody>       
+			</table>
+		</div>
+		{{msg}}
+		<hr/>
+		<div data-ui-view></div>	
+	</div>
+</div>

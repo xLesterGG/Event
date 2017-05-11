@@ -1,0 +1,93 @@
+<div class="row" data-ng-controller="addActivityCtrl">
+	<div class="col-md-12">
+		
+		
+        <div class="row" >
+			<div class="col-md-12" id="post-contact">
+            <h1>Add Activity Form</h1>		
+            <p>Complete the form below carefully to add an activity. Make sure to fill in the required fields as intended and double check for for the event time, date and location.</p>
+            <form name="myForm" data-ng-submit="submit()">
+
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <strong>Activity ID: </strong>{{activitynextID}}							
+                    </div>			
+                </div>	
+
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <label for="accname">Activity Name : </label> 
+                        <input type="text" id="accname" class="form-control" data-ng-model="activity.name" name="activityname" data-ng-required="required" placeholder="Activity name" />
+                        <span data-ng-show="myForm.activityname.$error.required && myForm.activityname.$touched" class="text-danger"> You must enter a activity name</span>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <label for="locationname">Activity Location : </label> 
+                        <input type="text" id="locationname" class="form-control" data-ng-model="activity.location" name="locationname" data-ng-required="required" placeholder="Activity location name" />
+                        <span data-ng-show="myForm.locationname.$error.required && myForm.locationname.$touched" class="text-danger"> You must enter a activity location name</span>
+
+                    </div>			
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <label for="accdesc">Activity Description: </label>
+                        <textarea id="accdesc" data-ng-model="activity.desc" name="activitydesc" rows="3" cols="35" data-ng-maxlength="70" class="form-control" required = "required">
+                        </textarea>
+						<span data-ng-show="myForm.activitydesc.$error.required && myForm.activitydesc.$touched" class="text-danger"> You must enter a activity description!</span>
+						
+                        <span data-ng-show="myForm.activitydesc.$error.maxlength">Activity description cannot be more then 70 characters!</span>
+                    </div>			
+                </div>
+                <!--min="{{CurrentDate|date:'yyyy-MM-dd'}}" -->
+                <div class="row"> 
+                    <div class="col-md-3 col-sm-6">
+                        <label for="date">Activity's date: </label>
+                        <input type="date" name="date" id="date" data-ng-model="activity.date" required="required" min="{{CurrentDate|date:'yyyy-MM-dd'}}" class="form-control" >
+                            <span data-ng-show="myForm.date.$error.required && myForm.date.$touched" class="text-danger">You must enter a date for the activity!</span>
+                            <span data-ng-show="myForm.date.$error.min" class="text-danger">You cant set an event in the past!</span>	
+                    </div>						
+                </div>
+
+                <div class="row"> 
+                    <div class="col-md-3 col-sm-6">
+                        <label for="stime">Activity's start time: </label>
+                        <input type="time" name="stime" id="stime" data-ng-model="activity.stime" required="required"   class="form-control" >
+                        <span data-ng-show="myForm.stime.$error.required && myForm.stime.$touched" class="text-danger">You must enter a activity start time!</span>
+                        <span data-ng-show="myForm.stime.$error.min" class="text-danger">You cant end an event before it starts!!</span>					
+                    </div>						
+                </div>
+                <!-- min="{{CurrentDate|date:'HH:mm:ss'}}"        min="{{CurrentDate|date:'HH:mm'}}"        data-ng-date="{activity.stime, activity.etime}" -->
+
+
+                <div class="row"> 
+                    <div class="col-md-3 col-sm-6">
+                        <label for="etime">Activity's end time: </label>
+                        <input type="time" name="etime" id="etime" data-ng-model="activity.etime" data-ng-required="required"  class="form-control" min="{{activity.stime|date:'HH:mm'}}">
+                        <!-- data-ng-date="activity.etime" data-min-date={{activity.stime}}-->
+                        <span data-ng-show="myForm.etime.$error.required && myForm.etime.$touched" class="text-danger">You must enter a activity end time!</span>	
+                        <span data-ng-show="myForm.etime.$error.min" class="text-danger">You cant set an event in the past!</span>	
+                    <!--	<span data-ng-show="myForm.etime.$error.afterstarttime">You cant set an to start before it finishes!</span>		-->
+
+                    </div>						
+                </div>
+
+
+                <div class="row"> 
+                    <div class="col-md-3 col-sm-6">		
+                        <br/><button type="submit" data-ng-disabled="myForm.$invalid"> Submit</button>
+                    </div>						
+                </div>
+
+            {{msg}}
+
+
+            </form>
+		</div>
+	</div>
+	
+	</div>
+</div>
